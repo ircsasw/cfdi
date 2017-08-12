@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:cce11="http://www.sat.gob.mx/ComercioExterior11">
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:cce11="http://www.sat.gob.mx/ComercioExterior11">
 
   <xsl:template match="cce11:ComercioExterior">
     <!--Manejador de nodos tipo ComercioExterior-->
@@ -99,7 +99,7 @@
   </xsl:template>
 
   <xsl:template match="cce11:Mercancias">
-    <!--  Iniciamos el manejo de los nodos dependientes -->
+   <!--  Iniciamos el manejo de los nodos dependientes -->
     <xsl:for-each select="./cce11:Mercancia">
       <xsl:apply-templates select="."/>
     </xsl:for-each>
@@ -158,14 +158,13 @@
     <xsl:call-template name="Requerido">
       <xsl:with-param name="valor" select="./@ValorDolares" />
     </xsl:call-template>
-    <!--  Iniciamos el manejo de los nodos dependientes -->
-    <xsl:for-each select="./cce11:DescripcionesEspecificas">
+	 <xsl:for-each select="./cce11:DescripcionesEspecificas">
       <xsl:apply-templates select="."/>
     </xsl:for-each>
-</xsl:template>
+  </xsl:template>
 
-  <xsl:template match="cce11:DescripcionesEspecificas">
-    <xsl:call-template name="Requerido">
+    <xsl:template match="cce11:DescripcionesEspecificas">
+      <xsl:call-template name="Requerido">
       <xsl:with-param name="valor" select="./@Marca" />
     </xsl:call-template>
     <xsl:call-template name="Opcional">
