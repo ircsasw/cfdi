@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:nomina12="http://www.sat.gob.mx/nomina12">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:nomina12="http://www.sat.gob.mx/nomina12">
 
   <xsl:template match="nomina12:Nomina">
     <!--Manejador de nodos tipo Nomina-->
@@ -76,7 +76,7 @@
     </xsl:for-each>
 
   </xsl:template>
-  
+
     <!--  Iniciamos el manejo de los elementos hijo en la secuencia EntidadSNCF-->
   <xsl:template match="nomina12:EntidadSNCF">
     <!--  Iniciamos el manejo de los nodos dependientes -->
@@ -152,7 +152,7 @@
     </xsl:for-each>
 
   </xsl:template>
-  
+
     <!--  Iniciamos el manejo de los elementos hijo en la secuencia SubContratacion-->
   <xsl:template match="nomina12:SubContratacion">
     <!--  Iniciamos el manejo de los nodos dependientes -->
@@ -256,7 +256,7 @@
       <xsl:with-param name="valor" select="./@ImportePagado" />
     </xsl:call-template>
   </xsl:template>
-  
+
    <!--  Iniciamos el manejo de los elementos hijo en la secuencia JubilacionPensionRetiro-->
   <xsl:template match="nomina12:JubilacionPensionRetiro">
     <!--Manejador de nodos tipo nomina12:JubilacionPensionRetiro-->
@@ -276,7 +276,7 @@
       <xsl:with-param name="valor" select="./@IngresoNoAcumulable" />
     </xsl:call-template>
   </xsl:template>
-  
+
     <!--  Iniciamos el manejo de los elementos hijo en la secuencia SeparacionIndemnizacion-->
   <xsl:template match="nomina12:SeparacionIndemnizacion">
     <!--Manejador de nodos tipo nomina12:JubilacionPensionRetiro-->
@@ -296,7 +296,7 @@
       <xsl:with-param name="valor" select="./@IngresoNoAcumulable" />
     </xsl:call-template>
   </xsl:template>
-    
+
   <xsl:template match="nomina12:Deducciones">
     <!--Manejador de nodos tipo nomina12:Deducciones-->
     <xsl:call-template name="Opcional">
@@ -312,7 +312,7 @@
     </xsl:for-each>
 
   </xsl:template>
-  
+
     <!--  Iniciamos el manejo de los elementos hijo en la secuencia Deduccion-->
   <xsl:template match="nomina12:Deduccion">
     <!--Manejador de nodos tipo nomina12:Deduccion-->
@@ -338,7 +338,7 @@
     </xsl:for-each>
 
   </xsl:template>
-  
+
   <!--  Iniciamos el manejo de los elementos hijo en la secuencia OtroPago-->
   <xsl:template match="nomina12:OtroPago">
     <!--Manejador de nodos tipo nomina12:OtroPago-->

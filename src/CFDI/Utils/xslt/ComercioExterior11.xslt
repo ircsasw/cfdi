@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:cce11="http://www.sat.gob.mx/ComercioExterior11">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:cce11="http://www.sat.gob.mx/ComercioExterior11">
 
   <xsl:template match="cce11:ComercioExterior">
     <!--Manejador de nodos tipo ComercioExterior-->
@@ -64,7 +64,7 @@
 
   <xsl:template match="cce11:Propietario">
     <!--  Tratamiento de los atributos de cce11:Propietario-->
-    
+
     <xsl:call-template name="Requerido">
       <xsl:with-param name="valor" select="./@NumRegIdTrib" />
     </xsl:call-template>
@@ -76,7 +76,7 @@
 
   <xsl:template match="cce11:Receptor">
     <!--  Tratamiento de los atributos de cce11:Receptor-->
-    
+
     <xsl:call-template name="Opcional">
       <xsl:with-param name="valor" select="./@NumRegIdTrib" />
     </xsl:call-template>

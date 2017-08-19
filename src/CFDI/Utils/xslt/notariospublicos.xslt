@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:notariospublicos="http://www.sat.gob.mx/notariospublicos">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:notariospublicos="http://www.sat.gob.mx/notariospublicos">
 
-  <!-- Manejador de nodos tipo notariospublicos:NotariosPublicos --> 
+  <!-- Manejador de nodos tipo notariospublicos:NotariosPublicos -->
   <xsl:template match="notariospublicos:NotariosPublicos">
-    
-    <!-- Iniciamos el tratamiento de los atributos -->    
+
+    <!-- Iniciamos el tratamiento de los atributos -->
     <xsl:call-template name="Requerido">
       <xsl:with-param name="valor" select="./@Version"/>
     </xsl:call-template>
-    
+
     <!-- Iniciamos el manejo de los nodos dependientes -->
     <xsl:apply-templates select="./notariospublicos:DescInmuebles"/>
     <xsl:apply-templates select="./notariospublicos:DatosOperacion"/>
     <xsl:apply-templates select="./notariospublicos:DatosNotario"/>
     <xsl:apply-templates select="./notariospublicos:DatosEnajenante"/>
     <xsl:apply-templates select="./notariospublicos:DatosAdquiriente"/>
-    
+
   </xsl:template>
 
     <!-- Manejador de nodos tipo notariospublicos:DescInmuebles -->
     <xsl:template match="notariospublicos:DescInmuebles">
-    
-      <!-- Iniciamos el manejo de los nodos dependientes -->    
+
+      <!-- Iniciamos el manejo de los nodos dependientes -->
       <xsl:for-each select="./notariospublicos:DescInmueble">
         <xsl:apply-templates select="."/>
       </xsl:for-each>
-    
+
     </xsl:template>
 
       <!-- Manejador de nodos tipo notariospublicos:DescInmueble -->
@@ -39,23 +39,23 @@
         <xsl:call-template name="Requerido">
           <xsl:with-param name="valor" select="./@Calle"/>
         </xsl:call-template>
-        
+
         <xsl:call-template name="Opcional">
           <xsl:with-param name="valor" select="./@NoExterior"/>
         </xsl:call-template>
-        
+
         <xsl:call-template name="Opcional">
           <xsl:with-param name="valor" select="./@NoInterior"/>
         </xsl:call-template>
-        
+
         <xsl:call-template name="Opcional">
           <xsl:with-param name="valor" select="./@Colonia"/>
         </xsl:call-template>
-        
+
         <xsl:call-template name="Opcional">
           <xsl:with-param name="valor" select="./@Localidad"/>
         </xsl:call-template>
-        
+
         <xsl:call-template name="Opcional">
           <xsl:with-param name="valor" select="./@Referencia"/>
         </xsl:call-template>
@@ -119,7 +119,7 @@
       <xsl:call-template name="Requerido">
         <xsl:with-param name="valor" select="./@EntidadFederativa"/>
       </xsl:call-template>
-      
+
       <xsl:call-template name="Opcional">
           <xsl:with-param name="valor" select="./@Adscripcion"/>
       </xsl:call-template>
@@ -134,18 +134,18 @@
       <xsl:call-template name="Requerido">
         <xsl:with-param name="valor" select="./@CoproSocConyugalE"/>
       </xsl:call-template>
-      
+
       <!-- Iniciamos el manejo de los nodos dependientes -->
       <xsl:if test="./notariospublicos:DatosUnEnajenante">
         <xsl:apply-templates select="./notariospublicos:DatosUnEnajenante"/>
       </xsl:if>
-      
+
       <xsl:if test="./notariospublicos:DatosEnajenantesCopSC">
         <xsl:apply-templates select="./notariospublicos:DatosEnajenantesCopSC"/>
       </xsl:if>
 
     </xsl:template>
-  
+
       <!-- Manejador de nodos tipo notariospublicos:DatosUnEnajenante -->
       <xsl:template match="notariospublicos:DatosUnEnajenante">
 
@@ -171,7 +171,7 @@
         </xsl:call-template>
 
       </xsl:template>
-  
+
       <!-- Manejador de nodos tipo notariospublicos:DatosEnajenantesCopSC -->
       <xsl:template match="notariospublicos:DatosEnajenantesCopSC">
 
@@ -230,7 +230,7 @@
       </xsl:if>
 
     </xsl:template>
-  
+
       <!-- Manejador de nodos tipo notariospublicos:DatosUnAdquiriente -->
       <xsl:template match="notariospublicos:DatosUnAdquiriente">
 
@@ -256,7 +256,7 @@
         </xsl:call-template>
 
       </xsl:template>
-  
+
       <!-- Manejador de nodos tipo notariospublicos:DatosAdquirientesCopSC -->
       <xsl:template match="notariospublicos:DatosAdquirientesCopSC">
 

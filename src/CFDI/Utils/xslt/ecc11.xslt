@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:ecc11="http://www.sat.gob.mx/EstadoDeCuentaCombustible">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:ecc11="http://www.sat.gob.mx/EstadoDeCuentaCombustible">
 
   <xsl:template match="ecc11:EstadoDeCuentaCombustible">
     <!--Manejador de nodos tipo EstadoDeCuentaCombustible-->
@@ -29,7 +29,7 @@
     <xsl:for-each select="./ecc11:ConceptoEstadoDeCuentaCombustible">
       <xsl:apply-templates select="."/>
     </xsl:for-each>
-    
+
   </xsl:template>
 
   <xsl:template match="ecc11:Traslados">
@@ -38,8 +38,8 @@
       <xsl:apply-templates select="."/>
     </xsl:for-each>
   </xsl:template>
-  
-  
+
+
   <!--  Iniciamos el manejo de los elementos hijo en la secuencia ConceptoEstadoDeCuentaCombustible-->
   <xsl:template match="ecc11:ConceptoEstadoDeCuentaCombustible">
     <!--  Iniciamos el manejo de los nodos dependientes -->
@@ -98,5 +98,5 @@
     </xsl:call-template>
   </xsl:template>
 
-  
+
 </xsl:stylesheet>
